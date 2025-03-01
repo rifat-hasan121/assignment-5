@@ -30,9 +30,33 @@
       .primary-color {
         color: #3752fd;
       }
+      .blue {
+        background-color: rgb(91, 91, 235);
+      }
+      .pink {
+        background-color: pink;
+      }
+      .violet {
+        background-color: rgb(229, 142, 229);
+      }
+      .orange {
+        background-color: rgb(201, 171, 113);
+      }
+      .gray {
+        background-color: rgb(135, 129, 129);
+      }
+      .teal {
+        background-color: rgb(79, 100, 103);
+      }
+      .lite-gray {
+        background-color: #FAD0C4;
+      }
+      .lite-blue{
+        background-color: #AC87C5;
+      }
     </style>
   </head>
-  <body class="bg-slate-200">
+  <body id="body">
     <header class="w-11/12 mx-auto poppins py-4">
       <!-- nev section -->
       <nav
@@ -58,7 +82,10 @@
             </div>
             <div class="text-3xl font-bold">23</div>
           </div>
-          <div class="bg-slate-200 rounded-full p-2 cursor-pointer">
+          <div
+            class="bg-slate-200 rounded-full p-2 cursor-pointer"
+            id="color-picker"
+          >
             <img src="./assets/theme-btn.png" alt="" />
           </div>
         </div>
@@ -78,7 +105,7 @@
                     </div>
                     <div>
                       <p class="text-color opacity-80">Task Assigned </p>
-                      <h3 class="text-3xl font-bold">05</h3>
+                      <h3 class="text-3xl font-bold" id="assigned-task">05</h3>
                     </div>
                   </div>
                 </div>
@@ -86,9 +113,9 @@
             </div>
 
             <div
-              class="card bg-base-100 w-96 shadow-xl bg-linear-to-r from-[#3752FD] to-[#6C7FFA]"
+              class="card bg-base-100 w-96 shadow-xl bg-gradient-to-l from-[#3752FD] via-[#6C7FFA] to-[#9BA8F8] " id="discover"
             >
-              <div class="card-body">
+              <div class="card-body cursor-pointer">
                 <div class="card-actions justify-end">
                   <div class="flex gap-5 items-center">
                     <div>
@@ -112,7 +139,6 @@
                       <img src="./assets/calender.png" alt="" />
                     </div>
                     <div>
-                      <p class="text-color text-2xl">Wed , </p>
                       <p class="text-xl font-bold" id="date"></p>
                     </div>
                   </div>
@@ -131,7 +157,10 @@
                     <p class="bg-slate-50 w-fit px-2 py-1 rounded-md mb-4">
                       ShopEase
                     </p>
-                    <h3 class="text-color font-medium text-2xl mb-4">
+                    <h3
+                      class="text-color font-medium text-2xl mb-4 card-title"
+                      id="shop-mobile"
+                    >
                       Fix Mobile Button Issue
                     </h3>
                     <div
@@ -172,7 +201,10 @@
                     <p class="bg-slate-50 w-fit px-2 py-1 rounded-md mb-4">
                       CloudSync
                     </p>
-                    <h3 class="text-color font-medium text-2xl mb-4">
+                    <h3
+                      class="text-color font-medium text-2xl mb-4 card-title"
+                      id="cloud-mode"
+                    >
                       Add Dark Mode
                     </h3>
                     <div
@@ -213,7 +245,10 @@
                     <p class="bg-slate-50 w-fit px-2 py-1 rounded-md mb-4">
                       SwiftPay
                     </p>
-                    <h3 class="text-color font-medium text-2xl mb-4">
+                    <h3
+                      class="text-color font-medium text-2xl mb-4 card-title"
+                      id="swift-home"
+                    >
                       Optimize Home page 
                     </h3>
                     <div
@@ -254,7 +289,10 @@
                     <p class="bg-slate-50 w-fit px-2 py-1 rounded-md mb-4">
                       Meta
                     </p>
-                    <h3 class="text-color font-medium text-2xl mb-4">
+                    <h3
+                      class="text-color font-medium text-2xl mb-4 card-title"
+                      id="meta-new"
+                    >
                       Add new emoji 🤲
                     </h3>
                     <div
@@ -295,7 +333,10 @@
                     <p class="bg-slate-50 w-fit px-2 py-1 rounded-md mb-4">
                       Google LLC
                     </p>
-                    <h3 class="text-color font-medium text-2xl mb-4">
+                    <h3
+                      class="text-color font-medium text-2xl mb-4 card-title"
+                      id="integrate- openAI"
+                    >
                       Integrate OpenAI API
                     </h3>
                     <div
@@ -336,7 +377,10 @@
                     <p class="bg-slate-50 w-fit px-2 py-1 rounded-md mb-4">
                       Glassdoar
                     </p>
-                    <h3 class="text-color font-medium text-2xl mb-4">
+                    <h3
+                      class="text-color font-medium text-2xl mb-4 card-title"
+                      id="glass-job"
+                    >
                       Improve Job searching
                     </h3>
                     <div
@@ -378,11 +422,12 @@
             <div class="text-xl font-medium text-[#00303]">Activity Log</div>
           </div>
           <div class="flex justify-center">
-            <button class="btn px-6 bg-[#3752FD] text-white hover:bg-[#3752FD]">
+            <button class="btn px-5 bg-[#3752FD] text-white hover:bg-[#3752FD]" id="clear-text">
               Clear History
             </button>
           </div>
           <hr class="border-dashed border-2 mt-4" />
+          <div id="activity-section"></div>
         </div>
       </div>
     </main>
