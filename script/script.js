@@ -7,7 +7,7 @@ document.getElementById('date').textContent = formattedDate;
 // random theme
 const color = ['blue', 'pink', 'violet', 'orange', 'gray', 'teal', 'lite-gray', 'lite-blue']; // Fixed typo in 'violet' and 'gray'
 const body = document.getElementById('body');
-document.getElementById('color-picker').addEventListener('click', function(){
+document.getElementById('color-picker').addEventListener('click', function () {
     const randomColor = color[Math.floor(Math.random() * color.length)];
     body.classList.remove(...color);
     body.classList.add(randomColor);
@@ -24,22 +24,34 @@ const currentTime = new Date().toLocaleTimeString();
 const assignedTask = document.getElementById('assigned-task').innerText;
 let convertedAssignedTask = parseInt(assignedTask);
 
-
+const totalCompleted = document.getElementById('total-count');
+const taskElement = document.getElementById('assigned-task');
 
 for (const completeBtn of completedBtn) {
     const eachBtn = completeBtn;
-    let newAssignedNumber = convertedAssignedTask - 1;
-    let sum = newAssignedNumber;
     eachBtn.addEventListener('click', function (event) {
 
-        event.preventDefault()
+        let totalFinish = parseInt(totalCompleted.innerText);
+        if(!isNaN(totalFinish)){
+            const newFinish = totalFinish + 1;
+            totalCompleted.innerText = newFinish;
+        }
+
+
+
+
+        let taskAssigned = parseInt(taskElement.innerText); 
+
+        if (!isNaN(taskAssigned) && taskAssigned > 0) { 
+            const newElement = taskAssigned - 1;
+            taskElement.innerText = newElement;
+        };
+
         let selectBtn = event.target.parentElement.parentElement.parentElement.querySelector('.text-color.font-medium.text-2xl.mb-4.card-title');
 
         alert("Board update Successfully");
         eachBtn.classList.add("disable");
         eachBtn.disabled = true;
-        
-
         const div = document.createElement('div');
         div.innerHTML = `
         <div class="m-4 p-2 rounded-xl bg-slate-200 ">
@@ -49,22 +61,22 @@ for (const completeBtn of completedBtn) {
         `
         activitySection.appendChild(div);
         document.getElementById('clear-text').addEventListener('click', function () {
-            
+
             div.style.display = 'none'
-        }); 
+        });
         checkAllBtnDisable()
     });
 };
 
-function checkAllBtnDisable (){
+function checkAllBtnDisable() {
     let allBtnDisable = true;
-    for(const btn of completedBtn){
-        if(!btn.disabled){
+    for (const btn of completedBtn) {
+        if (!btn.disabled) {
             allBtnDisable = false;
             break;
         }
     }
-    if(allBtnDisable){
+    if (allBtnDisable) {
         alert("Congratulation! You have completed all the current task");
 
     }
@@ -81,7 +93,7 @@ function checkAllBtnDisable (){
 
 // link with discover section
 
-document.getElementById('discover').addEventListener('click', function(){
+document.getElementById('discover').addEventListener('click', function () {
     window.location.href = './ans.html';
 });
 
